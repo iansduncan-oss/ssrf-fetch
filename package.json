@@ -1,0 +1,54 @@
+{
+  "name": "ssrf-fetch",
+  "version": "0.1.0",
+  "description": "A drop-in fetch() that blocks SSRF: refuses loopback/private/link-local/CGNAT targets and pins the connection to the validated IP to defeat DNS rebinding (TOCTOU).",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "dependencies": {
+    "undici": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.0.0"
+  },
+  "keywords": [
+    "ssrf",
+    "fetch",
+    "security",
+    "dns-rebinding",
+    "toctou",
+    "undici",
+    "url",
+    "webhook",
+    "metadata"
+  ],
+  "license": "MIT",
+  "author": "Ian Duncan <ian@aviontechs.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iansduncan-oss/ssrf-fetch.git"
+  },
+  "homepage": "https://github.com/iansduncan-oss/ssrf-fetch#readme",
+  "bugs": {
+    "url": "https://github.com/iansduncan-oss/ssrf-fetch/issues"
+  }
+}
